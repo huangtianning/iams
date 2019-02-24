@@ -1,0 +1,5 @@
+菜单selectedKeys属性表示选中的菜单项。
+
+componentWillReceiveProps()方法：
+
+componentWillReceiveProps是在组件存在期间用改变的props来判断更新自身state

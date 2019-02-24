@@ -1,0 +1,86 @@
+
+1）yarn add less less-loader
+
+2)webpack配置文件添加
+      const lessRegex = /\.less$/;
+      const lessModuleRegex = /\.module\.less$/;
+
+3）配置less-loader
+            //@To-do 原来的内容
+            // Adds support for CSS Modules, but using SASS
+                      // using the extension .module.scss or .module.sass
+                      {
+                        test: sassModuleRegex,
+                        use: getStyleLoaders(
+                          {
+                            importLoaders: 2,
+                            modules: true,
+                            getLocalIdent: getCSSModuleLocalIdent,
+                          },
+                          'sass-loader'
+                        ),
+            },
+            
+            //@To-do 添加如下内容
+            
+              {
+                        test: lessRegex,
+                        exclude: lessModuleRegex,
+                        use: getStyleLoaders({ importLoaders: 2 }, 'less-loader'),
+                      },
+                      // Adds support for CSS Modules, but using SASS
+                      // using the extension .module.scss or .module.sass
+                      {
+                        test: lessModuleRegex,
+                        use: getStyleLoaders(
+                          {
+                            importLoaders: 2,
+                            modules: true,
+                            getLocalIdent: getCSSModuleLocalIdent,
+                          },
+                          'less-loader'
+                        ),
+            },
+
+4)定义全局样式
+      //@To-Do 注释原来内容  
+        // if (preProcessor) {
+          //   loaders.push(require.resolve(preProcessor));
+          // }
+        
+        //@To-do 新添加内容
+          if (preProcessor) {
+            let loader = require.resolve(preProcessor)
+            if (preProcessor === "less-loader") {
+              loader = {
+                loader,
+                options: {
+                  modifyVars: { //自定义主题
+                    'primary-color':' #1890ff ',
+                  },
+                  javascriptEnabled: true,
+                }
+              }
+            }
+            loaders.push(loader);
+          }
+          return loaders;
+
+5）修改package.json
+        "babel": {
+          "presets": [
+            "react-app"
+          ],
+          "plugins": [
+            [
+              "import",
+              {
+                "libraryName": "antd",
+                "style": true  //修改处
+              }
+            ]
+          ]
+          注意：需要先yarn add babel-plugin-import 实现按需加载才能修改
+
+参考
+https://blog.csdn.net/qq_37674616/article/details/84636496#2.%E5%AE%89%E8%A3%85%E5%B0%91%E4%B8%8E%E8%BE%83%E5%B0%91%E8%A3%85%E8%BD%BD%E6%9C%BA

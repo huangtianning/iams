@@ -1,0 +1,64 @@
+.Content{
+
+    /*定义内容区域内容超出时滚动条的样式 BEGIN*/
+    ::-webkit-scrollbar {             /* 血槽宽度 */
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {           /* 拖动条 */
+        background-color: #e6e6e6;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {     /* 拖动条伪类样式 */
+        background-color: #e6e6e6;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-track {          /* 背景槽 */
+        // background-color: rgb(212, 212, 212);
+        border-radius: 6px;
+    }
+    /*定义内容区域内容超出时滚动条的样式 END*/
+
+    .Content-details{
+        padding: 24px 24px 0 24px;
+        background: #f0f2f5;
+        height: calc(100vh - 136px);
+        overflow: auto;
+    }
+}
+
+
+@media screen and (max-width: 1080px) {
+    .Content{
+
+        /*定义内容区域内容超出时滚动条的样式 BEGIN*/
+        ::-webkit-scrollbar {             /* 血槽宽度 */
+            width: 2px;
+            height: 2px;
+        }
+        ::-webkit-scrollbar-thumb {           /* 拖动条 */
+            background-color: #8f8f8f;
+            border-radius: 1px;
+        }
+    
+        ::-webkit-scrollbar-thumb:hover {     /* 拖动条伪类样式 */
+            background-color: #8f8f8f;
+            border-radius: 1px;
+        }
+    
+        ::-webkit-scrollbar-track {          /* 背景槽 */
+            // background-color: rgb(212, 212, 212);
+            border-radius: 1px;
+        }
+        /*定义内容区域内容超出时滚动条的样式 END*/
+    
+        .Content-details{
+            padding: 12px 12px 0 12px;
+            background: #f0f2f5;
+            height: calc(100vh - 120px);
+            overflow: auto;
+        }
+    }
+}

@@ -1,0 +1,5 @@
+面包屑的数据流动：
+
+Router --> Admin -->  Header ，然后在Header中渲染<Breadcrumb.Item>
+
+通过props层层传递了路由信息，再拼装Breadcrumb

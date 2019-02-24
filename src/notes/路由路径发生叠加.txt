@@ -1,0 +1,9 @@
+点击路由组件后发现路由路径叠加如 
+/admin/admin/admin/user
+/admin/admin/admin/admin/admin/admin/user
+是因为菜单配置json的路由key少写了一个'/'
+
+错误写法：admin/user
+正确写法: /admin/user
+
+必须细心！！！

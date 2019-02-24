@@ -1,0 +1,13 @@
+使用react-leaflet需要先安装以下包：
+
+ leaflet 
+ prop-types 
+ react react-dom 
+ react-leaflet
+
+ 还需要在项目入口index.html引入leaflet的css文件才能正常工作
+ 如：
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css"
+    />

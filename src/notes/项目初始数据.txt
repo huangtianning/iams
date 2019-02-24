@@ -1,0 +1,2 @@
+public/manifest.json文件保存了一些项目的初始数据，包括网页title，favicon等
+public/index.html包含了包括网页title，favicon，想要修改的话要修改这里，而且react根节点也渲染在这里
