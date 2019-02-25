@@ -8,7 +8,7 @@ import Base from './../pages/base';
 import Home from './../pages/home';
 import Leaflet from './../pages/leaflet'
 import BaseDetails from './../pages/baseDetails';
-import Users from './../pages/Users';
+import Users from './../pages/users';
 
 // import AppInit from './init'
 
