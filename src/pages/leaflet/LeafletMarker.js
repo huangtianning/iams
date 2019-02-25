@@ -1,16 +1,20 @@
 import React from 'react'
 import L from 'leaflet'
 import './LeafletMarker.less'
+import Icon from './class/icon'
 
 export default class LeafletMarker extends React.Component {
 
     constructor(props) {
         super(props);
+        
+        let myIcon = new Icon(props.type);
         this.marker = L.marker(props.position,{
-                draggable: props.draggable
+                draggable: props.draggable,
         });
         if(props.map !== undefined){
-            this.marker.addTo(props.map)
+            this.marker.setIcon(myIcon.getInstance());
+            this.marker.addTo(props.map);
         }
     }
 
@@ -28,6 +32,10 @@ export default class LeafletMarker extends React.Component {
             !props.draggable ?
             this.marker.dragging.disable() : this.marker.dragging.enable();
         }
+
+        let icon = new Icon(props.type);
+        this.marker.setIcon(icon.getInstance());
+
     }
 
     render(){

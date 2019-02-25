@@ -4,6 +4,7 @@ import './LeafletMap.less'
 import LeafletImageOverlay from './LeafletImageOverlay'
 import LeafletMarker from './LeafletMarker'
 
+
 export default class LeafletMap extends React.Component {
 
     constructor(props) {
@@ -29,7 +30,8 @@ export default class LeafletMap extends React.Component {
                 attributionControl: this.props.attributionControl,
                 minZoom: this.props.minZoom,
                 maxZoom: this.props.maxZoom,
-                center: this.state.origin
+                center: this.props.center,
+                maxBounds: this.props.maxBounds
             });
             this.setState({
                 map: map
@@ -37,15 +39,18 @@ export default class LeafletMap extends React.Component {
         }
     }
 
+    componentWillReceiveProps(props){
+
+    }
+
     render() {
         return (
             <div>
                 <LeafletImageOverlay map={this.state.map}/>
-                <LeafletMarker position={ [0,0] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
-                <LeafletMarker position={ [5,5] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
-                <LeafletMarker position={ [-6,10] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
-                <LeafletMarker position={ [13,-25] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
-                <button onClick={this.handleClick}>click</button>
+                <LeafletMarker type={"sensor"} position={ [0,0] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker type={"device"} position={ [5,5] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker type={"camera"} position={ [-6,10] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker type={"sensor"} position={ [13,-25] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
             </div>
         );
     }
