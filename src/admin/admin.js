@@ -3,12 +3,12 @@
 *
 */
 import React from 'react'
-import './Admin.less'
+import './admin.less'
 
-import Header from './components/Header/index'
-import Footer from './components/Footer/index'
-import Content from './components/Content/index'
-import NavLeft from './components/NavLeft/index'
+import Header from '../components/Header/index'
+import Footer from '../components/Footer/index'
+import Content from '../components/Content/index'
+import NavLeft from '../components/NavLeft/index'
 
 import {Layout} from 'antd';
 

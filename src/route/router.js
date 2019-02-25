@@ -1,18 +1,18 @@
 import React from 'react'
 import { BrowserRouter , Route, Switch, Redirect  } from 'react-router-dom'
-import App from './App'
-import LoginForm from './pages/login/index'
-import Admin from './Admin';
-import NoMatch from './pages/nomatch';
-import Base from './pages/base';
-import Home from './pages/home';
-import Leaflet from './pages/leaflet'
-import BaseDetails from './pages/baseDetails';
-import Users from './pages/Users';
+// import App from './../App'
+import LoginForm from './../pages/login/index'
+import Admin from './../admin/admin';
+import NoMatch from './../pages/nomatch';
+import Base from './../pages/base';
+import Home from './../pages/home';
+import Leaflet from './../pages/leaflet'
+import BaseDetails from './../pages/baseDetails';
+import Users from './../pages/Users';
 
 // import AppInit from './init'
 
-export default class IRouter extends React.Component{
+export default class AppRouter extends React.Component{
 
     baseDataHook = (baseData)=>{
         this.setState({
@@ -27,7 +27,6 @@ export default class IRouter extends React.Component{
     render(){
         return (
             <BrowserRouter >
-                <App>
                     <Switch>
                         {/* <Route exact path="/" component={LoginForm}/>  */}
                         <Route path="/login" component={ LoginForm } />
@@ -58,7 +57,6 @@ export default class IRouter extends React.Component{
                         } />
                         <Redirect to="/login"/>
                     </Switch>
-                </App>
             </BrowserRouter >
         );
     }
