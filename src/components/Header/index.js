@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout, Icon, Breadcrumb, Badge, Avatar, Menu, Dropdown, Popover, List } from 'antd'
 import { Link } from 'react-router-dom'
-import Mock from 'mockjs'
+import MockData from './../../mock'
 import './index.less'
 import avatarImg from './leon.png'
 
@@ -21,10 +21,10 @@ const breadcrumbNameMap = {
 const menu = (
     <Menu>
         <Menu.Item>
-            <a  rel="noopener noreferrer" href="/admin/mesaage">React</a>
+            <a rel="noopener noreferrer" href="/admin/mesaage">React</a>
         </Menu.Item>
         <Menu.Item>
-            <a  rel="noopener noreferrer" href="/admin/mesaage">Vue</a>
+            <a rel="noopener noreferrer" href="/admin/mesaage">Vue</a>
         </Menu.Item>
         <Menu.Item>
             <a rel="noopener noreferrer" href="/login">Sign out</a>
@@ -32,20 +32,6 @@ const menu = (
     </Menu>
 );
 
-const data = [
-    {
-      title: Mock.mock('@name'),
-    },
-    {
-      title: Mock.mock('@name'),
-    },
-    {
-      title: Mock.mock('@name'),
-    },
-    {
-      title: Mock.mock('@name'),
-    },
-  ];
 
 
 export default class Header extends React.Component {
@@ -125,25 +111,25 @@ export default class Header extends React.Component {
 
                 <div className="Header-right">
 
-                    <Popover 
-                    placement="bottomRight" 
-                    title={<span>Notification</span>} 
-                    content={
-                        <List
-                        itemLayout="horizontal"
-                        dataSource={data}
-                        renderItem={item => (
-                          <List.Item>
-                            <List.Item.Meta
-                              avatar={<Avatar style={ { backgroundColor: Mock.mock('@color')} } >{item.title[0]}</Avatar>}
-                              title={<a href="https://ant.design">{item.title}</a>}
-                              description={Mock.mock('@sentence(5)')}
+                    <Popover
+                        placement="bottomRight"
+                        title={<span>Notification</span>}
+                        content={
+                            <List
+                                itemLayout="horizontal"
+                                dataSource={MockData.notificationList}
+                                renderItem={item => (
+                                    <List.Item>
+                                        <List.Item.Meta
+                                            avatar={<Avatar style={{ backgroundColor: item.avatarColor }} >{item.title[0]}</Avatar>}
+                                            title={<a href="https://ant.design">{item.title}</a>}
+                                            description={item.description}
+                                        />
+                                    </List.Item>
+                                )}
                             />
-                          </List.Item>
-                        )}
-                      />
-                    } 
-                    trigger="click">
+                        }
+                        trigger="click">
                         <div className="inform-bell">
                             <Badge dot>
                                 <Icon type="bell" className="inform-bell-icon" />
@@ -155,7 +141,7 @@ export default class Header extends React.Component {
 
                     <Dropdown trigger={['click']} overlayStyle={{}} overlay={menu} placement="bottomRight">
                         <span className="user">
-                            <Avatar shape="circle" src={avatarImg} size={ 36 }/>
+                            <Avatar shape="circle" src={avatarImg} size={36} />
                         </span>
                     </Dropdown>
 

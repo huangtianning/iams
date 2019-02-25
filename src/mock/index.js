@@ -30,6 +30,14 @@ var MockData = Mock.mock({
     }
   ],
 
+  "notificationList|3-10": [
+    {
+      title: '@name',
+      avatarColor: "@color",
+      description: "@sentence(5)",
+    }
+  ],
+
 })
 
 export default MockData;
