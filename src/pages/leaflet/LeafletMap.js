@@ -1,39 +1,52 @@
 import React from 'react'
 import L from 'leaflet'
 import './LeafletMap.less'
-
-
-const origin = [0, 0];//原点坐标(0,0)
+import LeafletImageOverlay from './LeafletImageOverlay'
+import LeafletMarker from './LeafletMarker'
 
 export default class LeafletMap extends React.Component {
 
     constructor(props) {
         super(props);
-        this.mapRef = React.createRef();
+        this.state = {
+            origin: [0, 0],//原点坐标(0,0)
+            markerDraggable : true
+        };
     }
+
+
+    handleClick = ()=>{
+        this.setState({
+            markerDraggable : !this.state.markerDraggable
+        });
+    }
+
 
     componentWillMount() {
-
-    }
-
-    componentDidMount() {
-        let map = L.map(this.mapRef.current, {
-            //该方式使用ref获取dom节点来初始化map对象，也可用传递元素#id的方式，需要注意引入样式文件，初始化map的dom节点必须设置宽高地图才能显示
-            zoom: 3,
-            attributionControl: false,
-            minZoom: 1,
-            maxZoom: 6,
-            center: origin
-        });
-        L.imageOverlay("imageUrl", [[54, 106], [-54, -116]], { className: "react-leaflet-imageOverlay" }).addTo(map);
-        L.marker([0, 0], {
-            draggable:true
-        }).addTo(map);
+        if(document.getElementById("map")){
+            let map = L.map("map", {
+                zoom: this.props.zoom,
+                attributionControl: this.props.attributionControl,
+                minZoom: this.props.minZoom,
+                maxZoom: this.props.maxZoom,
+                center: this.state.origin
+            });
+            this.setState({
+                map: map
+            })
+        }
     }
 
     render() {
         return (
-            <div className="react-leaflet-map" ref={this.mapRef}></div>
+            <div>
+                <LeafletImageOverlay map={this.state.map}/>
+                <LeafletMarker position={ [0,0] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
+                <LeafletMarker position={ [5,5] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
+                <LeafletMarker position={ [-6,10] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
+                <LeafletMarker position={ [13,-25] } draggable={this.state.markerDraggable} map={this.state.map}></LeafletMarker>
+                <button onClick={this.handleClick}>click</button>
+            </div>
         );
     }
 }
