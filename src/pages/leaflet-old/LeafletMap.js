@@ -47,10 +47,10 @@ export default class LeafletMap extends React.Component {
         return (
             <div>
                 <LeafletImageOverlay map={this.state.map}/>
-                <LeafletMarker type={"sensor"} position={ [0,0] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
-                <LeafletMarker type={"device"} position={ [5,5] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
-                <LeafletMarker type={"camera"} position={ [-6,10] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
-                <LeafletMarker type={"sensor"} position={ [13,-25] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker value={3} type={"sensor"} position={ [0,0] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker value={4} type={"device"} position={ [5,5] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker value={5} type={"camera"} position={ [-6,10] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
+                <LeafletMarker value={6} type={"sensor"} position={ [13,-25] } draggable={this.props.message.shouldMarkersFixed} map={this.state.map}></LeafletMarker>
             </div>
         );
     }

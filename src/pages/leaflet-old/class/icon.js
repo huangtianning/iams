@@ -1,14 +1,16 @@
 import L from 'leaflet'
 
 export default class Icon {
-    constructor(type){
+    constructor(type, value){
         this.type = type;
+        this.value = value;
     }
 
     sensorHtml(){
         return(`
             <div>
                 <h1>sensor</h1>
+                <h1>${this.value}</h1>
             </div>
         `)
        
@@ -18,6 +20,7 @@ export default class Icon {
         return(`
             <div>
                 <h1>device</h1>
+                <h1>${this.value}</h1>
             </div>
         `)
        
@@ -27,6 +30,7 @@ export default class Icon {
         return(`
             <div>
                 <h1>camera</h1>
+                <h1>${this.value}</h1>
             </div>
         `)
        
