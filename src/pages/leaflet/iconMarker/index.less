@@ -1,0 +1,44 @@
+
+///////////////////////////////////////////////////
+//清除leaflet给marker的自带内联样式，十分重要！！！///
+.leaflet-marker-icon{                           ///
+    width: auto !important;                     ///
+    height: auto !important;                    ///
+    margin: 0 !important;                       ///
+}                                               ///
+//清除leaflet给marker的自带内联样式，十分重要！！！///
+///////////////////////////////////////////////////
+
+.i-marker{
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: 16px;
+    background-color: #eaf7ff;
+    margin-left: -16px;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4)
+}
+
+.i-marker-icon{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: #1da57a url("icon.png") no-repeat;
+    background-size: 80% 80%;
+    background-position: center center;
+}
+
+.i-marker-value{
+    line-height: 2.3;
+    padding: 0px 8px ;
+    font-weight:bold;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.i-marker-unit{
+    line-height: 2.3;
+    padding-right: 10px ;
+    font-weight:bold;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+}

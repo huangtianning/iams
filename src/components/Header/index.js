@@ -139,7 +139,7 @@ export default class Header extends React.Component {
 
                     <div className="Welcome">Hi, {this.state.userName}</div>
 
-                    <Dropdown trigger={['click']} overlayStyle={{}} overlay={menu} placement="bottomRight">
+                    <Dropdown trigger={['click']} overlayStyle={{}} overlay={menu} placement="bottomCenter">
                         <span className="user">
                             <Avatar shape="circle" src={avatarImg} size={36} />
                         </span>
