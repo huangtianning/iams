@@ -5,7 +5,7 @@ import MockData from './../../mock'
 
 //配置每一列属性
 const columns = [{
-    title: 'avatar',
+    title: 'Avatar',
     dataIndex: 'Avatar',
     align: "center",
     width: 64,
