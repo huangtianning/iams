@@ -1,9 +1,10 @@
 import React from 'react'
-import { Layout, Icon, Breadcrumb, Badge, Avatar, Menu, Dropdown, Popover, List } from 'antd'
+import { Layout, Icon, Breadcrumb, Badge, Avatar, Menu, Dropdown, Popover, List, Drawer } from 'antd'
 import { Link } from 'react-router-dom'
 import MockData from './../../mock'
 import './index.less'
 import avatarImg from './leon.png'
+import Resume from './../Resume'
 
 const LayoutHeader = Layout.Header;
 
@@ -34,16 +35,31 @@ const menu = (
 
 
 
+
+
 export default class Header extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             userName: 'guest',
+            showDrawer: false,
             path: this.props.router.location
         };
     }
 
+
+    showDrawer = () => {
+        this.setState({
+            showDrawer: true,
+        });
+    };
+
+    onClose = () => {
+        this.setState({
+            showDrawer: false,
+        });
+    };
 
     renderBreadcrumbItem = (props) => {
         const { location } = props;
@@ -110,6 +126,21 @@ export default class Header extends React.Component {
 
 
                 <div className="Header-right">
+
+                    <div onClick={ this.showDrawer } className="inform-bell">
+                        <Icon type="solution" className="inform-bell-icon" />
+                    </div>
+                    
+                    <Drawer
+                        title="个人简历"
+                        placement="right"
+                        closable={false}
+                        width={640}
+                        onClose={this.onClose}
+                        visible={this.state.showDrawer}
+                    >
+                        <Resume></Resume>
+                    </Drawer>
 
                     <Popover
                         placement="bottomRight"

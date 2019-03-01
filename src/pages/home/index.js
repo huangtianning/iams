@@ -100,12 +100,20 @@ export default class Home extends React.Component {
 
                 <Row gutter={24}>
                     <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                        <Card className="lg-card-12">
+                        <Card 
+                        className="lg-card-12"
+                        title={<CardHeader title={"To-Do"}/>}
+                        headStyle={{ borderBottom: "none" }}
+                        >
 
                         </Card>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                        <Card className="lg-card-12">
+                        <Card 
+                        className="lg-card-12"
+                        title={<CardHeader title={"To-Do"}/>}
+                        headStyle={{ borderBottom: "none" }}
+                        >
 
                         </Card>
                     </Col>
@@ -113,7 +121,11 @@ export default class Home extends React.Component {
 
                 <Row gutter={24}>
                     <Col xs={24} sm={24} md={24} lg={24} xl={24}>
-                        <Card className="xxl-card">
+                        <Card 
+                        className="xxl-card"
+                        title={<CardHeader title={"To-Do"}/>}
+                        headStyle={{ borderBottom: "none" }}
+                        >
 
                         </Card>
                     </Col>
@@ -121,17 +133,26 @@ export default class Home extends React.Component {
 
                 <Row gutter={24}>
                     <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-                        <Card className="m-card">
+                        <Card className="m-card"
+                        title={<CardHeader title={"To-Do"}/>}
+                        headStyle={{ borderBottom: "none" }}
+                        >
 
                         </Card>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-                        <Card className="m-card">
+                        <Card className="m-card"
+                        title={<CardHeader title={"To-Do"}/>}
+                        headStyle={{ borderBottom: "none" }}
+                        >
 
                         </Card>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-                        <Card className="m-card">
+                        <Card className="m-card"
+                        title={<CardHeader title={"To-Do"}/>}
+                        headStyle={{ borderBottom: "none" }}
+                        >
 
                         </Card>
                     </Col>

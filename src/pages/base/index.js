@@ -4,6 +4,8 @@ import { Card, Icon, Col, Row } from 'antd';
 import { Link } from 'react-router-dom'
 // import BaseConfig from './../../config/baseConfig'
 import MockData from './../../mock'
+import NProgress from 'nprogress'
+import './../../css/nprogress.css' //这个样式必须引入
 
 const BaseConfig = MockData.baseList
 
@@ -46,12 +48,18 @@ export default class Base extends React.Component{
     }
 
     componentWillMount(){
+        NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
+        NProgress.start();
         const baseNode = this.renderBaseNode(BaseConfig);
         this.props.baseDataHook(BaseConfig);
         // console.log("base componentWillMount.")
         this.setState({
             baseNode
         });
+    }
+
+    componentDidMount(){
+        NProgress.done()
     }
 
     render(){
