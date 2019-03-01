@@ -132,7 +132,6 @@ export default class Header extends React.Component {
                     </div>
                     
                     <Drawer
-                        title="个人简历"
                         placement="right"
                         closable={false}
                         width={640}

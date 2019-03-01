@@ -3366,6 +3366,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emoji-mart@^2.9.2:
+  version "2.9.2"
+  resolved "http://registry.npm.taobao.org/emoji-mart/download/emoji-mart-2.9.2.tgz#03d1a3011e9d5fa7cd184fe308b7b803e6901ae2"
+  integrity sha1-A9GjAR6dX6fNGE/jCLe4A+aQGuI=
+
 emoji-regex@^6.5.1:
   version "6.5.1"
   resolved "http://registry.npm.taobao.org/emoji-regex/download/emoji-regex-6.5.1.tgz#9baea929b155565c11ea41c6626eaa65cef992c2"
