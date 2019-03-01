@@ -8,7 +8,7 @@ export default class Footer extends React.Component{
     render(){
         return (
             <LayoutFooter className="Footer">
-                Ant Design ©2018 Created by Ant UED
+                Ant Design ©2018 Huangtianning
             </LayoutFooter>
         );
     }

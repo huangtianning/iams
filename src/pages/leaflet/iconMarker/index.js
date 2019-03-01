@@ -44,8 +44,8 @@ export default class IconMarker extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.setState({
             value: nextProps.value,
-            echartsData:this.updateEchartsData(this.state.echartsData, nextProps.value),
-            axisData:this.updateEchartsData(this.state.axisData, (new Date()).toLocaleTimeString().replace(/^\D*/,''))
+            echartsData: this.state.value===nextProps.value? this.state.echartsData : this.updateEchartsData(this.state.echartsData, nextProps.value),
+            axisData: this.state.value===nextProps.value? this.state.axisData : this.updateEchartsData(this.state.axisData, (new Date()).toLocaleTimeString().replace(/^\D*/,''))
         })
     }
 

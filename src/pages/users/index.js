@@ -2,6 +2,8 @@ import React from 'react'
 import './index.less'
 import { Table, Divider, Button, Icon, Avatar } from 'antd';
 import MockData from './../../mock'
+import NProgress from 'nprogress'
+import './../../css/nprogress.css' //这个样式必须引入
 
 //配置每一列属性
 const columns = [{
@@ -69,6 +71,16 @@ const data = MockData.usersList;
 
 //组件定义
 export default class Users extends React.Component {
+
+    componentWillMount(){
+        NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
+        NProgress.start();
+    }
+
+    componentDidMount(){
+        NProgress.done()
+    }
+
     render() {
         return (
             <div className="users-content">

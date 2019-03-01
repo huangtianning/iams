@@ -13,8 +13,8 @@ const breadcrumbNameMap = {
     '/admin/base/baseDetails': 'BaseDetails',
     '/admin/users': 'Users',
     '/admin/leaflet': 'Leaflet',
-    '/admin/sensor': 'Sensor',
-    '/admin/relay': 'Relay'
+    '/admin/option1': 'Option1',
+    '/admin/option2': 'Option2'
 };
 
 

@@ -1,16 +1,24 @@
 import React from 'react'
 import { Form, Input, Icon, Button, Card, message } from 'antd'
 import './index.less'
-
+import NProgress from 'nprogress'
+import './../../css/nprogress.css' //这个样式必须引入
 
 const accessKey = {
     userName: "guest",
     passWord: "guest"
 }
 
-
-
 class LoginFrom extends React.Component{
+
+    componentWillMount(){
+        NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
+        NProgress.start();
+    }
+
+    componentDidMount(){
+        NProgress.done()
+    }
 
     accessKeyIsRight = (params)=>{
         if(params.userName === accessKey['userName'] && params.passWord === accessKey['passWord']){

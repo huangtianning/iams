@@ -7,7 +7,7 @@ export default class PopupContent extends React.Component {
     getOption = (props)=>{
         return {
             title: {
-                text: 'Echarts Demo',
+                text: 'real-time data',
                 padding: [
                     20,  // 上
                     0, // 右

@@ -8,7 +8,8 @@ import { Switch, Button, Icon, Card } from 'antd'
 import IconMarker from './iconMarker'
 import { mapInitData, valueChangeData } from './../../config/leafletConfig'
 import Mock from 'mockjs'
-
+import NProgress from 'nprogress'
+import './../../css/nprogress.css' //这个样式必须引入
 
 
 
@@ -25,6 +26,15 @@ export default class Leaflet extends React.Component {
         };
     }
 
+
+    componentWillMount(){
+        NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
+        NProgress.start();
+    }
+
+    componentDidMount(){
+        NProgress.done()
+    }
 
     sendMockData = () => {
         let MockData = Mock.mock({

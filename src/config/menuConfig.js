@@ -10,23 +10,6 @@ const menuList = [
         icon:"shop"
     },
     {
-        title: 'Device',
-        key: '/admin/device',
-        icon:"thunderbolt",
-        children: [
-            {
-                title: 'Sensor',
-                key: '/admin/sensor',
-                icon:"wifi"
-            },
-            {
-                title: 'Relay',
-                key: '/admin/relay',
-                icon:"cluster"
-            }
-        ]
-    },
-    {
         title: 'Leaflet',
         key: '/admin/leaflet',
         icon:"environment"
@@ -35,6 +18,23 @@ const menuList = [
         title: 'Users',
         key: '/admin/users',
         icon:"user"
+    },
+    {
+        title: 'Nothing',
+        key: '/admin/nothing',
+        icon:"thunderbolt",
+        children: [
+            {
+                title: 'option 1',
+                key: '/admin/option1',
+                icon:"wifi"
+            },
+            {
+                title: 'option 2',
+                key: '/admin/option2',
+                icon:"cluster"
+            }
+        ]
     },
 ];
 
