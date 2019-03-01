@@ -105,7 +105,7 @@ export default class Resume extends React.Component {
                         因为antd使用less，所以本项目也使用less作为css预处理器。该项目还集成了leaflet + echarts做数据展示，使用mockjs产生假数据模拟后端接口。
                     </Timeline.Item>
                     <Timeline.Item>
-                        未来，我还想学习更多更先进的前端技术，我拥有充沛的经历和快速学习的能力，希望能与更多的技术牛人共事<Emoji emoji=':laughing:' size={24}/>
+                        未来，我还想学习更多更先进的前端技术，我拥有充沛的精力和快速学习的能力，希望能与更多的技术牛人共事<Emoji emoji=':laughing:' size={24}/>
                     </Timeline.Item>
                 </Timeline>
 
