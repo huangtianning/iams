@@ -28,7 +28,7 @@ const menu = (
             <a rel="noopener noreferrer" href="/admin/mesaage">Vue</a>
         </Menu.Item>
         <Menu.Item>
-            <a rel="noopener noreferrer" href="/login">Sign out</a>
+            <a rel="noopener noreferrer" href="/">Sign out</a>
         </Menu.Item>
     </Menu>
 );
@@ -132,9 +132,10 @@ export default class Header extends React.Component {
                     </div>
                     
                     <Drawer
+                        className="resume"
                         placement="right"
-                        closable={false}
-                        width={640}
+                        closable={true}
+                        width={document.body.clientWidth >= 640 ? 640:320}
                         onClose={this.onClose}
                         visible={this.state.showDrawer}
                     >

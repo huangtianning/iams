@@ -11,6 +11,12 @@ const accessKey = {
 
 class LoginFrom extends React.Component{
 
+    state = {
+        showUserNameFeedback:false,
+        showPassWordFeedback:false
+    }
+
+
     componentWillMount(){
         NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
         NProgress.start();
@@ -26,6 +32,18 @@ class LoginFrom extends React.Component{
         }else{
             return false;
         }
+    }
+
+    onChangeUserName = ()=>{
+        this.setState({
+            showUserNameFeedback:true
+        })
+    }
+
+    onChangePassWord = ()=>{
+        this.setState({
+            showPassWordFeedback:true
+        })
     }
 
     handleSubmit = (e) => {
@@ -64,21 +82,22 @@ class LoginFrom extends React.Component{
                         {/* 一个FromItem中放一个被 getFieldDecorator 装饰过的 child */}
                         <Form.Item
                             validateStatus={userNameError ? 'error' : 'success'}//validateStatus为校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating'
-                            hasFeedback
+                            hasFeedback={this.state.showUserNameFeedback}
                         >
                         {
                             getFieldDecorator('userName',{
-                                rules:[{required:true,message:"username is required"}]
+                                rules:[{required:true,message:"username is required"}],
                             })(
                                 <Input prefix={<Icon type="user" />}
                                         placeholder="Username"
+                                        onChange={this.onChangeUserName}
                                 />
                             )
                         }
                         </Form.Item>
                         <Form.Item
                             validateStatus={passWordError ? "error" : 'success'}
-                            hasFeedback
+                            hasFeedback={this.state.showPassWordFeedback}
                         >
                         {
                             getFieldDecorator('passWord',{
@@ -86,6 +105,7 @@ class LoginFrom extends React.Component{
                             })(
                                 <Input type="passWord" prefix={<Icon type="lock"/>}
                                         placeholder="Password"
+                                        onChange={this.onChangePassWord}
                                 />
                             )
                         }

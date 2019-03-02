@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Divider,Timeline,Tabs } from 'antd'
+import { Row, Col, Divider,Timeline,Tabs, Tag  } from 'antd'
 import './index.less'
 import './emoji-mart.css'
 import { Emoji } from 'emoji-mart'
@@ -80,11 +80,23 @@ export default class Resume extends React.Component {
                     <Timeline.Item>2017-01 回到南宁进入公司从事web后端开发实习，开始接触前端开发，同时毕业设计做了一个仿微信的APP，自己实现了一个最简单的服务器。</Timeline.Item>
                 </Timeline>
 
-                <Divider orientation="right">个人技术栈</Divider>
+                <Divider orientation="right">技术和能力</Divider>
                 <Tabs defaultActiveKey="1" style={{marginLeft:24,marginRight:24}}>
-                    <TabPane tab="前端" key="1">Content of Tab Pane 1</TabPane>
-                    <TabPane tab="后端" key="2">Content of Tab Pane 2</TabPane>
-                    <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
+                    <TabPane tab="前端" key="1">
+                        <p><Tag color="magenta">基础</Tag>熟练掌握html5,css3,对其新特性有所了解，了解响应式设计，能较好地实现UI设计（本项目登录页和整体设计风格借鉴了ant admin，css代码由我独立编写），审美观符合主流。熟悉es5,es6,了解es6新特性，能手写原生js代码。了解常用的数据结构和算法，具备一定的计算机基础知识。</p>
+                        <p><Tag color="red">React</Tag>能较为熟练地使用react系的框架和工具开发web应用，包括但不限于react-router、antd， 对react组件化、数据流有较为深刻的认识。</p>
+                        <p><Tag color="green">Leaflet</Tag>精通js地图库leaflet，能在其基础上进行深度定制开发，有实际项目经验。</p>
+                        <p><Tag color="blue">Echarts</Tag>精通百度图表库echarts，能熟练进行配置和使用，有实际项目经验。</p>
+                        <p><Tag color="yellow">工作流</Tag>熟悉新一代前端开发工作流，熟练使用yarn打包和部署项目，对webpack配置有所了解。</p>
+                    </TabPane>
+                    <TabPane tab="后端" key="2">
+                        <p><Tag color="volcano">Java</Tag>熟悉java语言，负责过后端业务逻辑实现。</p>
+                        <p><Tag color="geekblue">Mybatis</Tag>熟悉mybatis框架，在项目中写过dao层和后端api，熟悉mvc。</p>
+                        <p><Tag color="cyan">Nginx</Tag>熟悉Nginx，了解常用配置，本项目在线demo即部署在Nginx上。</p>
+                    </TabPane>
+                    <TabPane tab="性格" key="3">
+                        <p>性格开朗，善于理解业务需求，常常站在客户角度思考如何完善产品的设计和适用性，对产品设计有自己的见解。喜欢钻研技术问题，常常会因为没有解决问题忘记吃饭和睡觉<Emoji emoji=':joy:' size={24}/>，是一个完美主义者。</p>
+                    </TabPane>
                 </Tabs>
 
 
@@ -105,7 +117,7 @@ export default class Resume extends React.Component {
                         因为antd使用less，所以本项目也使用less作为css预处理器。该项目还集成了leaflet + echarts做数据展示，使用mockjs产生假数据模拟后端接口。
                     </Timeline.Item>
                     <Timeline.Item>
-                        未来，我还想学习更多更先进的前端技术，我拥有充沛的精力和快速学习的能力，希望能与更多的技术牛人共事<Emoji emoji=':laughing:' size={24}/>
+                        未来，我还想学习更多更先进的前端技术，我拥有充沛的精力和快速学习的能力，希望能与更多的技术牛人共事和学习<Emoji emoji=':heart_eyes:' size={24}/>
                     </Timeline.Item>
                 </Timeline>
 
@@ -117,7 +129,15 @@ export default class Resume extends React.Component {
                     </Col>
                     <Col span={12}>
                         <DescriptionItem title="Phone" content="+86 181 7235 9628" />
-                    </Col>
+                    </Col>          
+                </Row>
+                <Row>
+                    <Col span={12}>
+                        <DescriptionItem title="QQ" content='907442024' />
+                    </Col> 
+                    <Col span={12}>
+                        <DescriptionItem title="Wechat" content='htn907442024' />
+                    </Col> 
                 </Row>
                 <Row>
                     <Col span={24}>
