@@ -85,8 +85,8 @@ export default class Resume extends React.Component {
                     <TabPane tab="前端" key="1">
                         <p><Tag color="magenta">基础</Tag>熟练掌握html5,css3,对其新特性有所了解，了解响应式设计，能较好地实现UI设计（本项目登录页和整体设计风格借鉴了ant admin，css代码由我独立编写），审美观符合主流。熟悉es5,es6,了解es6新特性，能手写原生js代码。了解常用的数据结构和算法，具备一定的计算机基础知识。</p>
                         <p><Tag color="red">React</Tag>能较为熟练地使用react系的框架和工具开发web应用，包括但不限于react-router、antd， 对react组件化、数据流有较为深刻的认识。</p>
-                        <p><Tag color="green">Leaflet</Tag>精通js地图库leaflet，能在其基础上进行深度定制开发，有实际项目经验。</p>
-                        <p><Tag color="blue">Echarts</Tag>精通百度图表库echarts，能熟练进行配置和使用，有实际项目经验。</p>
+                        <p><Tag color="green">Leaflet</Tag>熟练使用js地图库leaflet，能在其基础上进行深度定制开发，有实际项目经验。</p>
+                        <p><Tag color="blue">Echarts</Tag>熟练使用百度图表库echarts，能熟练进行配置和使用，有实际项目经验。</p>
                         <p><Tag color="yellow">工作流</Tag>熟悉新一代前端开发工作流，熟练使用yarn打包和部署项目，对webpack配置有所了解。</p>
                     </TabPane>
                     <TabPane tab="后端" key="2">
