@@ -48,7 +48,7 @@ export default class Admin extends React.Component {
 
     notification.open({
       message: '欢迎光临！',
-      description: '感谢您关注我做的这个小项目，我正在积极寻找一份前端工程师的职位，假如您是HR，欢迎与我联系！点击右上角的文件图标可以查看我的简历和联系方式。',
+      description: '欢迎光临欢迎光临欢迎光临欢迎光临欢迎光临欢迎光临。',
       icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
       duration: 15,
       placement:'bottomRight',
