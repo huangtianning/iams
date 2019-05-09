@@ -1,23 +1,40 @@
 const menuList = [
     {
-        title: 'Home',
+        title: '主页',
         key: '/admin/home',
-        icon:"home"
+        icon: "home"
+    },
+    {
+        title: '申报中心',
+        key: '/admin/apply',
+        icon: "shop",
+        children: [
+            {
+                title: '申请表填写',
+                key: '/admin/apply_form',
+                icon: "wifi"
+            },
+            {
+                title: '申请表检查',
+                key: '/admin/apply_check',
+                icon: "cluster"
+            }
+        ]
     },
     {
         title: 'Leaflet',
         key: '/admin/leaflet',
-        icon:"environment"
+        icon: "environment"
     },
     {
         title: 'Base',
         key: '/admin/base',
-        icon:"shop"
+        icon: "shop"
     },
     {
         title: 'Users',
         key: '/admin/users',
-        icon:"user"
+        icon: "user"
     },
     // {
     //     title: 'Resume',

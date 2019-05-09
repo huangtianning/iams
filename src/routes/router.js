@@ -9,6 +9,7 @@ import Home from './../pages/home';
 import Leaflet from './../pages/leaflet'
 import BaseDetails from './../pages/baseDetails';
 import Users from './../pages/users';
+import ApplyCheck from './../pages/applyCheck';
 
 // import AppInit from './init'
 
@@ -49,6 +50,7 @@ export default class AppRouter extends React.Component{
                                         </Switch>
                                     } />
 
+                                    <Route path="/admin/apply_check" component={ ApplyCheck } />
                                     <Route path="/admin/users" component={ Users } />
                                     <Route path="/admin/leaflet" component={ Leaflet } />
                                     <Route component={ NoMatch }></Route>

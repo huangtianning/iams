@@ -5,33 +5,22 @@ import MockData from './../../mock'
 import './index.less'
 import avatarImg from './leon.png'
 import Resume from './../Resume'
+import axios from 'axios'
+import apiConfig from './../../config/apiConfig'
 
 const LayoutHeader = Layout.Header;
 
 const breadcrumbNameMap = {
-    '/admin/Home': 'Home',
+    '/admin/Home': '主页',
     '/admin/base': 'Base',
     '/admin/base/baseDetails': 'BaseDetails',
     '/admin/users': 'Users',
     '/admin/leaflet': 'Leaflet',
-    '/admin/option1': 'Option1',
-    '/admin/option2': 'Option2'
+    '/admin/apply_form': '申请表填写',
+    '/admin/apply_check': '申请表检查'
 };
 
 
-const menu = (
-    <Menu>
-        <Menu.Item>
-            <a rel="noopener noreferrer" href="/admin/mesaage">React</a>
-        </Menu.Item>
-        <Menu.Item>
-            <a rel="noopener noreferrer" href="/admin/mesaage">Vue</a>
-        </Menu.Item>
-        <Menu.Item>
-            <a rel="noopener noreferrer" href="/">Sign out</a>
-        </Menu.Item>
-    </Menu>
-);
 
 
 
@@ -42,10 +31,43 @@ export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: 'guest',
+            userName: this.props.user.username,
             showDrawer: false,
             path: this.props.router.location
         };
+
+        this.menu = (
+            <Menu>
+                <Menu.Item>
+                    <a rel="noopener noreferrer" href="/admin/mesaage">React</a>
+                </Menu.Item>
+                <Menu.Item>
+                    <a rel="noopener noreferrer" href="/admin/mesaage">Vue</a>
+                </Menu.Item>
+                <Menu.Item>
+                    <span onClick={this.logout} rel="noopener noreferrer" >Sign out</span>
+                </Menu.Item>
+            </Menu>
+        );
+
+    }
+
+    logout = () => {
+        let history = this.props.router.history;
+        axios.get(apiConfig.apiAddress + 'logout')
+          .then(function (response) {
+            if (response.data.status === "200" || response.data.status === "403") {
+              console.log("user logout");
+              history.push({
+                "pathname": '/login',
+              });
+            }else{
+              
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
 
@@ -98,9 +120,9 @@ export default class Header extends React.Component {
             pathSnippets[0] === "home" || pathSnippets.length === 0 ?
 
                 (<Breadcrumb.Item key="home">
-                    <span className="last-breadcrumb-item">Home</span>
+                    <span className="last-breadcrumb-item">主页</span>
                 </Breadcrumb.Item>) : (<Breadcrumb.Item key="home">
-                    <Link to="/admin/home">Home</Link>
+                    <Link to="/admin/home">主页</Link>
                 </Breadcrumb.Item>)
         )].concat(extraBreadcrumbItems);
 
@@ -168,9 +190,9 @@ export default class Header extends React.Component {
                         </div>
                     </Popover>
 
-                    <div className="Welcome">Hi, {this.state.userName}</div>
+                    <div className="Welcome">Hi, {this.props.user.username}</div>
 
-                    <Dropdown trigger={['click']} overlayStyle={{}} overlay={menu} placement="bottomCenter">
+                    <Dropdown trigger={['click']} overlayStyle={{}} overlay={this.menu} placement="bottomCenter">
                         <span className="user">
                             <Avatar shape="circle" src={avatarImg} size={36} />
                         </span>

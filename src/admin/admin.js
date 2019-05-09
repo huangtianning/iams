@@ -10,16 +10,23 @@ import Footer from '../components/Footer/index'
 import Content from '../components/Content/index'
 import NavLeft from '../components/NavLeft/index'
 
+import axios from 'axios'
+import apiConfig from './../config/apiConfig'
+
 import { Layout, notification, Icon, Button } from 'antd';
 
-
+axios.defaults.withCredentials=true
 
 
 export default class Admin extends React.Component {
 
   state = {
     collapsed: true,
-    alwaysShowNotification: true
+    alwaysShowNotification: false,
+    userData:{
+      username:"null",
+      password:"null"
+    }
   };
 
   toggle = () => {
@@ -28,7 +35,7 @@ export default class Admin extends React.Component {
     });
   }
 
-  notificationClosed = (key)=>{
+  notificationClosed = (key) => {
     notification.close(key)
     this.setState({
       alwaysShowNotification: false
@@ -51,20 +58,49 @@ export default class Admin extends React.Component {
       description: '欢迎光临欢迎光临欢迎光临欢迎光临欢迎光临欢迎光临。',
       icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
       duration: 15,
-      placement:'bottomRight',
+      placement: 'bottomRight',
       btn,
-      key:key,
+      key: key,
       // onClose: this.notificationClosed,
     });
   };
 
+
+  componentWillMount() {
+    
+  }
+
   componentDidMount() {
-    this.openNotification()
-    setInterval(()=>{
-      if(this.state.alwaysShowNotification){
-        this.openNotification()
-      }
-    },60000)
+    // this.openNotification()
+    // setInterval(() => {
+    //   if (this.state.alwaysShowNotification) {
+    //     this.openNotification()
+    //   }
+    // }, 60000)
+
+
+    // console.log("admin componentWillMount");
+    let history = this.props.router.history;
+    let _this = this;
+    axios.get(apiConfig.apiAddress + 'loginState')
+      .then(function (response) {
+        // console.log(response);
+        if (response.data.status === "403") {
+          console.log("user Unauthorized");
+          history.push({
+            "pathname": '/login',
+          });
+        }else{
+          _this.setState({
+            userData: response.data.data
+          })
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
   }
 
   render() {
@@ -79,6 +115,7 @@ export default class Admin extends React.Component {
           <Header
             toggleHandler={this.toggle}
             isCollapsed={this.state.collapsed}
+            user={this.state.userData}
             router={this.props.router}
           />
           <Content>

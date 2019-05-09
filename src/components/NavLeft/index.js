@@ -1,14 +1,17 @@
 import React from 'react'
 import { Layout, Menu, Icon  } from 'antd'
 import './index.less'
-
+import axios from 'axios'
+import apiConfig from './../../config/apiConfig'
 import { Link } from 'react-router-dom'
 
 import Logo from '../Logo/index'
-import MenuConfig from './../../config/menuConfig'
+// import MenuConfig from './../../config/menuConfig'
 
 const LayoutSider = Layout.Sider;
 const SubMenu = Menu.SubMenu;
+
+axios.defaults.withCredentials=true
 
 export default class Sider extends React.Component {
 
@@ -31,11 +34,10 @@ export default class Sider extends React.Component {
 
 
     componentWillMount(){
-        const menuTreeNode = this.renderMenu(MenuConfig);
-        // console.log("pathname: " + this.props.pathname)
+        // const menuTreeNode = this.renderMenu(MenuConfig);
 
         this.setState({
-            menuTreeNode:menuTreeNode,
+            // menuTreeNode:menuTreeNode,
              selectedItem: this.props.pathname
         });
 
@@ -48,7 +50,19 @@ export default class Sider extends React.Component {
     }
 
     componentDidMount(){
-        
+        let _this = this;
+        axios.get(apiConfig.apiAddress + 'menu')
+                .then(function (response) {
+                    console.log(response);
+                    let menuTreeNode = _this.renderMenu(response.data);
+                    _this.setState({
+                        menuTreeNode:menuTreeNode,
+                         selectedItem: _this.props.pathname
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
     }
 
     componentWillReceiveProps(props){
